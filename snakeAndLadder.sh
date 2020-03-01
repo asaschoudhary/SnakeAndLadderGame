@@ -4,3 +4,6 @@ echo "Welcome in snake and ladder game"
 #Constant variable
 Numberofplayer=1
 Startposition=0
+#Generate a random value between 1 to 6
+randomRollsDie=$((RANDOM%6+1))
+echo $randomRollsDie
