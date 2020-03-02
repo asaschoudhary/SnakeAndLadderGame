@@ -21,11 +21,11 @@ do
 				echo "Player is on same $position"
 				;;
 		$snake)
-            position=$(( $position-$randomRollsDie ))
-            echo "Player moves behind by  position:$position"
-            if (( $position<0 ))
-            then
-                  position=0
+				position=$(( $position-$randomRollsDie ))
+				echo "Player moves behind by  position:$position"
+				if (( $position<0 ))
+				then
+					position=0
 				fi
 				;;
 	esac
