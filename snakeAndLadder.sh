@@ -6,9 +6,12 @@ position=0
 ladder=0
 noplay=1
 snake=2
-#Generate a random value between 1 to 6
+#using Dictionary
+declare -A winningDicePosition
 while(($position!=100))
 do
+	dieCount=$((dieCount+1))
+	#Generate a random value between 1 to 6
 	randomRollsDie=$((RANDOM%6 + 1))
 	checkCase=$((RANDOM%3))
 	case $checkCase in
@@ -38,3 +41,6 @@ do
 				;;
 	esac
 done
+	#Count the dic and winning position 
+	winningDicPosition[$dieCount]=$position
+	echo "Dic position" $dieCount $position 
