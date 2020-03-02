@@ -13,20 +13,28 @@ do
 	checkCase=$((RANDOM%3))
 	case $checkCase in
 		$ladder)
-			position=$(( $position + $randomRollsDie ))
-			echo "Player moves ahead by position:$position"
-			;;
+				if(( (( $position + $randomRollsDie ))>100))
+				then
+					position=$position
+					echo "Stay in same position :"$position
+				else
+					position=$(( position + randomRollsDie ))
+					echo "new position:"$position
+				fi
+				;;
 		$noplay)
-			position=$position
-			echo "Player is on same $position"
-			;;
+				position=$position
+				echo "Player is on same $position"
+				;;
 		$snake)
-			position=$(( $position-$randomRollsDie ))
-			echo "Player moves behind by  position:$position"
-			if (( $position<0 ))
-			then
-				position=0
-			fi
-			;;
+				if (( $position<0 ))
+				then
+					position=0
+				else
+					 position=$(( $position - $randomRollsDie ))
+					echo "Player moves behind by  position:$position"
+
+				fi
+				;;
 	esac
 done
